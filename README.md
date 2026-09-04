@@ -1,4 +1,4 @@
-[![CI](https://github.com/BBMRI-cz/miabis-on-fhir/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/BBMRI-cz/miabis-on-fhir/actions/workflows/ci.yml)
+[![CI](https://github.com/BBMRI-ERIC/miabis-on-fhir/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/BBMRI-ERIC/miabis-on-fhir/actions/workflows/ci.yml)
 # MIABIS on FHIR
 
 FHIR representation of[ MIABIS (Minimum Information About BIobank Data Sharing)](https://miabis.bbmri-eric.eu).
@@ -6,12 +6,12 @@ FHIR representation of[ MIABIS (Minimum Information About BIobank Data Sharing)]
 The Goal of this project is to provide guidance and all necessary information for adopting the MIABIS on FHIR profiles.
 
 ## Availability
-The implementation guide is available through GitHub Pages [here](https://bbmri-cz.github.io/miabis-on-fhir/),
+The implementation guide is available through GitHub Pages [here](https://fhir.miabis.bbmri-eric.eu/),
 as well as on the [Simplifier](https://simplifier.net/miabis).
 ## State
 MIABIS on FHIR has been marked active and ready for production use with its **1.0.0 release**.
 It is currently being adopted by the [BBMRI-ERIC Federated Search platform](https://www.bbmri-eric.eu/bbmri-sample-and-data-portal/).
-A reference usage of the project can be found in an [ETL tool](https://github.com/BBMRI-cz/fhir-module)
+A reference usage of the project can be found in an [ETL tool](https://github.com/BBMRI-ERIC/fhir-module)
 used by BBMRI.cz.
 > [!NOTE]  
 > To help with adoption, we have developed a Python library which can be found [here](https://pypi.org/project/MIABIS-on-FHIR).
