@@ -11,14 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    name: Publish IG
+    name: Build IG
     permissions:
       pages: write
-      id-token: write
-      contents: write   
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
     steps:
       - name: Install Jekyll
         run: sudo gem install jekyll
@@ -62,11 +58,6 @@ jobs:
         with:
           path: ./output
 
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push'
-        id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
-
       - name: Create Simplifier ZIP
         if: github.event_name == 'release'
         run: |
@@ -81,3 +72,19 @@ jobs:
           PKG_NAME="${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.tgz"
           cp output/package.tgz "$PKG_NAME"
           gh release upload "${{ github.event.release.tag_name }}" "$PKG_NAME" --clobber
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    name: Deploy IG
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
